@@ -7,9 +7,10 @@ import (
 	"strings"
 )
 
-//
-// Executes Brainfuck logic.
-//
+/*
+execute:
+Executes Brainfuck logic.
+*/
 func execute(program []byte) string {
 	input := bufio.NewReader(os.Stdin)
 	stack := make([]byte, 30720)

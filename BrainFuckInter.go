@@ -1,41 +1,45 @@
-// BrainFuckInter package
-//
-// The main method, Interpret, receives client arguments consisting of:
-// 1- App launch command
-// 2- Type of argument (--file or --script)
-// 3- File path or script
-//
-// Responses with Brainfuck output logged into the console.
+/*
+BrainFuckInter package
+*/
 
 package BrainFuckInter
 
 import (
 	"errors"
+	"fmt"
+	"strings"
+
+	"github.com/fatih/color"
 )
 
-//
-// Send file contents (should be Brainfuck script) to executer.
-//
-func interpretFile(args []string) (string, error) {
-	contents, err := readFile(args[2])
+/*
+interpretFile:
+Send file contents (should be Brainfuck script) to executer.
+*/
+func interpretFile(filePath string) (string, error) {
+	contents, err := readFile(filePath)
 	if err != nil {
 		return "", errors.New(err.Error())
 	}
 	return execute(contents), nil
 }
 
-//
-// Send script argument (should be Brainfuck script) to executer.
-//
-func interpretScript(args []string) (string, error) {
-	return execute([]byte(args[2])), nil
+/*
+interpretScript:
+Send script argument (should be Brainfuck script) to executer.
+*/
+func interpretScript(script string) (string, error) {
+	return execute([]byte(script)), nil
 }
 
-//
-// Main method.
-// It validates, store commands and assing arguments to executor.
-//
-func Interpret(args []string) (string, error) {
+/*
+InterpretOnce:
+Interpret from a set of arguments entered one time.
+Return the results.
+Validate arguments.
+Store commands in history.
+*/
+func InterpretOnce(args []string) (string, error) {
 	if !validateArguments(args) {
 		return "", errors.New("syntax: '[app] --file/--script filename/Brainfuck script'")
 	}
@@ -47,10 +51,40 @@ func Interpret(args []string) (string, error) {
 
 	switch args[1] {
 	case "--script":
-		return interpretScript(args)
+		return interpretScript(args[2])
 	case "--file":
-		return interpretFile(args)
+		return interpretFile(args[2])
 	default:
 		return "", errors.New("unknown error")
+	}
+}
+
+/*
+InterpretLive:
+Interpret from user input character after another.
+It validates, store commands and assing arguments to executor.
+*/
+func InterpretLive() error {
+	color.Cyan("Start typing Brainfuck script: ")
+
+	script := []string{}
+	input := ""
+	for {
+		fmt.Scanln(&input)
+		if input != "" {
+			script = append(script, input)
+
+			output, err := interpretScript(strings.Join(script, ""))
+			if err != nil {
+				return errors.New(err.Error())
+			}
+
+			if output == "" {
+				color.Yellow("¯\\_(ツ)_/¯")
+			} else {
+				color.Green(output)
+			}
+		}
+		input = ""
 	}
 }
