@@ -1,0 +1,7 @@
+/shelf/
+/workspace.xml
+/dataSources/
+/dataSources.local.xml
+/httpRequests/
+/idea
+*.DS_Store
