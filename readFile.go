@@ -1,20 +1,15 @@
 package BrainFuckInter
 
 import (
+	"errors"
 	"io/ioutil"
-	"os"
-
-	"github.com/fatih/color"
 )
 
-func readFile(args []string) []byte {
-	filename := args[1]
-
-	program, err := ioutil.ReadFile(filename)
+func readFile(path string) ([]byte, error) {
+	contents, err := ioutil.ReadFile(path)
 	if err != nil {
-		color.Red("Cannot read/find file: '%s'\n", filename)
-		os.Exit(0)
+		return nil, errors.New("Cannot read/find file:" + path)
 	}
 
-	return program
+	return contents, nil
 }

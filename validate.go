@@ -1,14 +1,9 @@
 package BrainFuckInter
 
-import (
-	"os"
-
-	"github.com/fatih/color"
-)
-
-func validate(args []string) {
-	if len(args) != 2 {
-		color.Yellow("Use 'bf filename'\n")
-		os.Exit(0)
-	}
+//
+// Validate arguments.
+// Validating length and type of input.
+//
+func validateArguments(args []string) bool {
+	return len(args) == 3 && (args[1] == "--file" || args[1] == "--script")
 }

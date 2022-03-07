@@ -4,14 +4,20 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strings"
 )
 
-func execute(program []byte) {
+//
+// Executes Brainfuck logic.
+//
+func execute(program []byte) string {
 	input := bufio.NewReader(os.Stdin)
 	stack := make([]byte, 30720)
 	loops := make([]int, 0, 1024)
 	cell := 0
 	skip := 0
+
+	var output strings.Builder
 
 	for x := 0; x < len(program); x++ {
 
@@ -30,7 +36,8 @@ func execute(program []byte) {
 			stack[cell]--
 
 		case '.':
-			fmt.Printf("%c", stack[cell])
+			bar := fmt.Sprintf("%c", stack[cell])
+			output.WriteString(bar)
 
 		case ',':
 			stack[cell], _ = input.ReadByte()
@@ -58,4 +65,6 @@ func execute(program []byte) {
 			}
 		}
 	}
+
+	return output.String()
 }
