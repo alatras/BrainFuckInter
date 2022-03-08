@@ -41,7 +41,7 @@ Then you can start entering your Brainfuck script. You get the output after ever
 
 ```
 func main() {
-	output, err := BrainFuckInter.Interpret(os.Args)
+	output, err := BrainFuckInter.InterpretOnce(os.Args)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -71,3 +71,5 @@ go run *.go --file ./helloworld.bf
 ```
 go test -v ./...
 ```
+
+**Note**: The repo `[BrainfuckPrograms](https://github.com/alatras/brainfuck-programs)` includes two examples of Brainfuck programs. You can download them to test `InterpretOnce` method with `--file`.
