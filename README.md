@@ -1,4 +1,4 @@
-# BrainFrack Interpreter
+# Brainfuck Interpreter
 
 Simple Go library that interprets BrainFrack code.
 
@@ -32,9 +32,10 @@ func main() {
 Then you can start entering your Brainfuck script. You get the output after every new line.
 
 **Extra functionalities on the fly:**
-Type `s` to square current cell value.
-Type `h` to half current cell value.
-Type `c` to cube current cell value.
+
+- Type `s` to square current cell value.
+- Type `h` to half current cell value.
+- Type `c` to cube current cell value.
 
 #### 2- Interpret a script entered all at once or stored in a file:
 
