@@ -1,10 +1,10 @@
 # Brainfuck Interpreter
 
-Golang library to interpret BrainFrack code.
+Golang library to interpret Brainfuck code.
 
-## Get
+## Download
 
-**Download:**
+**Get:**
 
 ```
 go get github.com/alatras/BrainFuckInter
@@ -18,7 +18,7 @@ import "github.com/alatras/BrainFuckInter"
 
 ## Use
 
-#### 1- Live interpret your input:
+#### 1- Live-interpret your input:
 
 ```
 func main() {
@@ -37,9 +37,8 @@ Run your app and you will be prompted to start typing your Brainfuck script. You
 - Type `h` to half current cell value.
 - Type `c` to cube current cell value.
 
-The above operations also apply using bellow method `InterpretOnce` if letters are added to the script.
 
-#### 2- Interpret a script entered all at once or stored in a file:
+#### 2- Interpret a script passed as an argument or stored in file:
 
 ```
 func main() {
@@ -47,12 +46,14 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-
 	fmt.Println(output)
 }
 ```
 
-Where `os.Argus` are three arguments that are required: `[your Go app] --file/--script filename/Brainfuck script`
+Where `os.Argus` are three arguments that **are required**. Syntax:
+`[your Go app] --file/--script filename/Brainfuck-script`
+
+The **custom operations** mentioned above also apply using this method if corresponding letters (`s, h, c`) are added to the script.
 
 **Examples:**
 
@@ -68,10 +69,10 @@ Where `os.Argus` are three arguments that are required: `[your Go app] --file/--
 [your Go app] --file ./helloworld.bf
 ```
 
-## Test
+You can download examples of Brainfuck programs from [brainfuck-programs](https://github.com/alatras/brainfuck-programs) to test this method with `--file`.
+
+## Run tests
 
 ```
 go test -v ./...
 ```
-
-**Note**: You can download 2 examples of Brainfuck programs from [brainfuck-programs](https://github.com/alatras/brainfuck-programs) to test the method `InterpretOnce` with `--file`.
