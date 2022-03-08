@@ -50,20 +50,20 @@ func main() {
 }
 ```
 
-Where `os.Argus` are three arguments that are required: `[app] --file/--script filename/Brainfuck script`
+Where `os.Argus` are three arguments that are required: `[your Go app] --file/--script filename/Brainfuck script`
 
 Examples:
 
 1- "Hello World!" with Brainfuck script as an argument:
 
 ```
-go run *.go --script  "++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++."
+[your Go app] --script  "++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++."
 ```
 
 2- "Hello World!" with a file containing Brainfuck script:
 
 ```
-go run *.go --file ./helloworld.bf
+[your Go app] --file ./helloworld.bf
 ```
 
 ## Test
