@@ -31,11 +31,13 @@ func main() {
 
 Then you can start entering your Brainfuck script. You get the output after every new line.
 
-**Extra functionalities on the fly:**
+**Custom operations at runtime:**
 
 - Type `s` to square current cell value.
 - Type `h` to half current cell value.
 - Type `c` to cube current cell value.
+
+The above operations also apply using method `InterpretOnce`.
 
 #### 2- Interpret a script entered all at once or stored in a file:
 
@@ -72,4 +74,4 @@ Examples:
 go test -v ./...
 ```
 
-**Note**: The repo [brainfuck-programs](https://github.com/alatras/brainfuck-programs) includes two examples of Brainfuck programs. You can download them to test `InterpretOnce` method with `--file`.
+**Note**: You can download 2 examples of Brainfuck programs from [brainfuck-programs](https://github.com/alatras/brainfuck-programs) to test `InterpretOnce` method with `--file`.
