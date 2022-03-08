@@ -1,8 +1,8 @@
-## BrainFrack Interpreter
+# BrainFrack Interpreter
 
 Simple Go library that interprets BrainFrack code.
 
-### Usage
+## Usage
 
 **Download:**
 
@@ -16,9 +16,9 @@ go get github.com/alatras/BrainFuckInter
 import "github.com/alatras/BrainFuckInter"
 ```
 
-### Code
+## Code
 
-1. **Live interpret your input:**
+#### 1- Live interpret your input:
 
 ```
 func main() {
@@ -31,7 +31,12 @@ func main() {
 
 Then you can start entering your Brainfuck script. You get the output after every new line.
 
-2. **Interpret a script entered all at once or stored in a file:**
+**Extra functionalities on the fly:**
+Type `s` to square current cell value.
+Type `h` to half current cell value.
+Type `c` to cube current cell value.
+
+#### 2- Interpret a script entered all at once or stored in a file:
 
 ```
 func main() {
@@ -60,7 +65,7 @@ go run *.go --script  "++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.
 go run *.go --file ./helloworld.bf
 ```
 
-### Test
+## Test
 
 ```
 go test -v ./...

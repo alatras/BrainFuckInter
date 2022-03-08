@@ -33,6 +33,15 @@ func execute(program []byte) string {
 		case '+':
 			stack[cell]++
 
+		case 's':
+			stack[cell] = stack[cell] * stack[cell]
+
+		case 'h':
+			stack[cell] = stack[cell] / 2
+
+		case 'c':
+			stack[cell] = stack[cell] * stack[cell] * stack[cell]
+
 		case '-':
 			stack[cell]--
 
