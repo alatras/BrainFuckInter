@@ -72,4 +72,4 @@ go run *.go --file ./helloworld.bf
 go test -v ./...
 ```
 
-**Note**: The repo `[BrainfuckPrograms](https://github.com/alatras/brainfuck-programs)` includes two examples of Brainfuck programs. You can download them to test `InterpretOnce` method with `--file`.
+**Note**: The repo [brainfuck-programs](https://github.com/alatras/brainfuck-programs) includes two examples of Brainfuck programs. You can download them to test `InterpretOnce` method with `--file`.
