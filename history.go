@@ -8,8 +8,7 @@ import (
 const historyFile = "history.txt"
 
 /*
-addCommandToHistory:
-Store commands in history file.
+/ addCommandToHistory stores commands in history file.
 */
 func addCommandToHistory(args []string) error {
 	f, err := os.OpenFile(historyFile, os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0600)

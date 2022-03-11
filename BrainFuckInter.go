@@ -1,5 +1,5 @@
 /*
-BrainFuckInter package
+/ BrainFuckInter package
 */
 
 package BrainFuckInter
@@ -13,8 +13,7 @@ import (
 )
 
 /*
-interpretFile:
-Send file contents (should be Brainfuck script) to executer.
+/ interpretFile sends file contents (should be Brainfuck script) to executer.
 */
 func interpretFile(filePath string) (string, error) {
 	contents, err := readFile(filePath)
@@ -25,19 +24,17 @@ func interpretFile(filePath string) (string, error) {
 }
 
 /*
-interpretScript:
-Send script argument (should be Brainfuck script) to executer.
+/ interpretScript sends script argument (should be Brainfuck script) to executer.
 */
 func interpretScript(script string) (string, error) {
 	return execute([]byte(script)), nil
 }
 
 /*
-InterpretOnce:
-Interpret from a set of arguments entered one time.
-Return the results.
-Validate arguments.
-Store commands in history.
+/ InterpretOnce interprets from a set of arguments entered one time,
+/ returns the results,
+/ validate arguments,
+/ and stores commands in history.
 */
 func InterpretOnce(args []string) (string, error) {
 	if !validateArguments(args) {
@@ -60,9 +57,8 @@ func InterpretOnce(args []string) (string, error) {
 }
 
 /*
-InterpretLive:
-Interpret from user input character after another.
-It validates, store commands and assing arguments to executor.
+/ InterpretLive interprets user input character after another,
+/ validates, stores commands and assigns arguments to executor.
 */
 func InterpretLive() error {
 	color.Cyan("Start typing Brainfuck script: ")

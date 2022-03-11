@@ -6,8 +6,7 @@ import (
 )
 
 /*
-readFile:
-Read and return fill contents given its path.
+/ readFile reads and return fill contents given its path.
 */
 func readFile(path string) ([]byte, error) {
 	contents, err := ioutil.ReadFile(path)

@@ -8,8 +8,7 @@ import (
 )
 
 /*
-execute:
-Executes Brainfuck logic.
+/ execute executes Brainfuck logic.
 */
 func execute(program []byte) string {
 	input := bufio.NewReader(os.Stdin)
